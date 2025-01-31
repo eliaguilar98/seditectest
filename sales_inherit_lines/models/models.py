@@ -4,7 +4,7 @@ from odoo import models, fields, api
 
 
 class sales_inherit_lines(models.Model):
-     _inherit = "sale.order.line", "sale.margin"
+     _inherit = "sale.order.line"
 
      margin_percent = fields.Float(
          readonly=False
@@ -13,6 +13,8 @@ class sales_inherit_lines(models.Model):
          compute = '_compute_price_unit'
      )
 
+     purchase_price = fields.Float()
+        
      @api.depends('price_unit','purchase_price','margin_percent')
      def _compute_price_unit(self):
          for line in self:
