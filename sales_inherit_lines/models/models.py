@@ -4,7 +4,8 @@ from odoo import models, fields, api
 
 
 class sales_inherit_lines(models.Model):
-     _inherit = "sale.order.line"
+     _inherit = "sale.order.line", "sale.margin"
+     _
 
      margin_percent = fields.Float(
          readonly=False
