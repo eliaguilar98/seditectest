@@ -1,19 +1,15 @@
 # -*- coding: utf-8 -*-
 
-# from odoo import models, fields, api
+from odoo import models, fields, api
 
 
-# class sales_inherit_lines(models.Model):
-#     _name = 'sales_inherit_lines.sales_inherit_lines'
-#     _description = 'sales_inherit_lines.sales_inherit_lines'
+class sales_inherit_lines(models.Model):
+     _name = 'sales_inherit_lines.sales_inherit_lines'
+     _description = 'sales_inherit_lines.sales_inherit_lines'
+     _inherit = "sale.order.line"
 
-#     name = fields.Char()
-#     value = fields.Integer()
-#     value2 = fields.Float(compute="_value_pc", store=True)
-#     description = fields.Text()
-#
-#     @api.depends('value')
-#     def _value_pc(self):
-#         for record in self:
-#             record.value2 = float(record.value) / 100
+     margin_percent = fields.Float(
+         readonly=False
+     )
+
 
