@@ -7,7 +7,8 @@ class sales_inherit_lines(models.Model):
      _inherit = "sale.order.line"
 
      margin_percent = fields.Float(
-         readonly=False
+         readonly=False,
+         compute=''
      )
      price_unit = fields.Float(
          compute = '_compute_price_unit'
