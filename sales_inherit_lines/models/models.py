@@ -24,4 +24,4 @@ class sales_inherit_lines(models.Model):
      @api.depends('price_subtotal', 'product_uom_qty', 'purchase_price')
      def _compute_margin:
         for line in self:
-            pass
+            
