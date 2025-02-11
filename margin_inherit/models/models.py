@@ -23,7 +23,7 @@ class margin_inherit(models.Model):
             line.price_unit = line.purchase_price + (line.purchase_price * line.margin_percent)
 
     @api.depends('price_subtotal','product_uom_qty','purchase_price')
-    def _compute_margin:
+    def _compute_margin(self):
         for line in self:
             pass
 
