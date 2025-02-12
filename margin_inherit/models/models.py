@@ -7,8 +7,7 @@ class margin_inherit(models.Model):
     _inherit = "sale.order.line"
 
     margin_percent = fields.Float(
-        readonly = False,
-        compute = '_compute_margin'
+        readonly = False
     )
 
     price_unit = fields.Float(
@@ -24,7 +23,8 @@ class margin_inherit(models.Model):
 
     @api.depends()
     def _compute_margin(self):
-        pass
+        for line in self:
+            pass
 
 
 
