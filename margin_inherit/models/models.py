@@ -16,7 +16,7 @@ class margin_inherit(models.Model):
 
     purchase_price = fields.Float()
 
-    margin = fields.Flotat(
+    margin = fields.Float(
         
     )
 
