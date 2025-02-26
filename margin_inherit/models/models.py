@@ -24,7 +24,8 @@ class margin_inherit(models.Model):
     def _compute_price_unit(self):
         for line in self:
             line.price_unit = line.purchase_price + (line.purchase_price * line.margin_percent)
-            line.margin = (line.price_unit * line.product_uom_qty) - (line.purchase_price * line.product_uom_qty)
+            #line.margin = (line.price_unit * line.product_uom_qty) - (line.purchase_price * line.product_uom_qty)
+            line.margin = line.margin_percent * line.price_subtotal
 
     @api.depends()
     def _compute_margin(self):
