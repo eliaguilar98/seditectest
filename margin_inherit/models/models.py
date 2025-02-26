@@ -28,7 +28,7 @@ class margin_inherit(models.Model):
             line.price_unit = line.purchase_price + (line.purchase_price * line.margin_percent)
             #line.margin = (line.price_unit * line.product_uom_qty) - (line.purchase_price * line.product_uom_qty)
             line.margin = line.margin_percent * line.price_subtotal
-        raise UserError(margin)
+        
             
 
     @api.depends('price_subtotal','margin_percent','margin')
