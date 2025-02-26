@@ -8,7 +8,8 @@ class margin_inherit(models.Model):
 
     margin_percent = fields.Float(
         readonly = False,
-        compute = '_compute_margin'
+        compute = '_compute_margin',
+        precompute = False
     )
 
     price_unit = fields.Float(
