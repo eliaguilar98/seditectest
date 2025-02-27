@@ -8,13 +8,11 @@ class margin_inherit(models.Model):
 
     margin_percent = fields.Float(
         readonly = False,
-        #compute = '_compute_margin',
-        #precompute = False
     )
 
-   # price_unit = fields.Float(
-    #    compute = '_compute_price_unit'
-    #)
+    price_unit = fields.Float(
+        compute = '_compute_price_unit'
+    )
 
     @api.depends('price_unit','purchase_price','margin_percent')
     def _compute_price_unit(self):
