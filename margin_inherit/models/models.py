@@ -14,7 +14,7 @@ class margin_inherit(models.Model):
         compute = '_compute_price_unit'
     )
 
-    @api.depends('price_unit','purchase_price','margin_percent')
+    @api.onchange('purchase_price','margin_percent')
     def _compute_price_unit(self):
         for line in self:
             if line.purchase_price != 0 and line.margin_percent != 0:
