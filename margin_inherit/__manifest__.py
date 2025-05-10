@@ -2,7 +2,7 @@
 {
     'name': "margin_inherit",
 
-    'summary': "Short (1 phrase/line) summary of the module's purpose",
+    'summary': "Obtener el precio unitario de acuerdo al margen establecido.",
 
     'description': """
 Long description of module's purpose
