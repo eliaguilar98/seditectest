@@ -24,6 +24,7 @@ Restricción de edición del campo Vendedor en CRM, solo gerencia tiene permitid
     'data': [
         # 'security/ir.model.access.csv',
         'views/crm_lead_view.xml',
+        'views/res_partner_view.xml',
         'views/templates.xml',
     ],
     # only loaded in demonstration mode
