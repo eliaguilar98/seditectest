@@ -8,7 +8,7 @@
             <!--Reemplaza el campo editable solo para gerencia -->
             <xpath expr="//field[@name='user_id']" position="replace">
                 <field name="user_id" groups="sales_team_group.group_sales_manager"/>
-            </xpath
+            </xpath>
             <!--Campo solo lectura para los demas-->    
             <xpath expr="//field[@name='user_id']" position="after">
                 <field name="user_id" readonly="1" groups="base.group_user"/>
