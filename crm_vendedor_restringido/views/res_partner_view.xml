@@ -3,7 +3,7 @@
     <record id="res_partner_form_view_inherit_user_id_readonly" model="ir.ui.view">
         <field name="name">res.partner.form.inherit.user_id.readonly</field>
         <field name="model">res.partner</field>
-        <field name="inherit_id" ref="base.res_partner"/>
+        <field name="inherit_id" ref="base.view_partner_form"/>
         <field name="arch" type="xml">
             <!--Reemplaza el campo editable solo para gerencia -->
             <xpath expr="//page[@string='Sales &amp; Purchase']//field[@name='user_id']" position="replace">
