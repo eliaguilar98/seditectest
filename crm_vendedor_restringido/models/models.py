@@ -1,19 +1,14 @@
 # -*- coding: utf-8 -*-
 
-# from odoo import models, fields, api
+from odoo import models, fields, api 
 
+class ResPartner(models.Model):
+    _inherit = 'res.partner'
 
-# class crm_vendedor_restringido/(models.Model):
-#     _name = 'crm_vendedor_restringido/.crm_vendedor_restringido/'
-#     _description = 'crm_vendedor_restringido/.crm_vendedor_restringido/'
+    can_edit_user_id = fields.Boolean(compute='_compute_can_edit_user_id', store=False)
 
-#     name = fields.Char()
-#     value = fields.Integer()
-#     value2 = fields.Float(compute="_value_pc", store=True)
-#     description = fields.Text()
-#
-#     @api.depends('value')
-#     def _value_pc(self):
-#         for record in self:
-#             record.value2 = float(record.value) / 100
-
+    @api.depends()
+    def _compute_can_edit_user_id(self):
+        for record in self:
+            user = self.env.user
+            record.can_edit_user_id = user.has_group('sales_team.group_sale_manager')
