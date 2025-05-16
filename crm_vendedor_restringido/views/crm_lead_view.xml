@@ -7,15 +7,15 @@
         <field name="arch" type="xml">
             <!--Reemplaza el campo editable solo para gerencia -->
              <xpath expr="//field[@name='user_id']" position="replace">
-                 <field name="user_id"
-                 groups="sales_team.group_sale_salesman"
+                 <field name="user_id" />
+                 <!--groups="sales_team.group_sale_salesman"
                  modifiers='{"readonly": true}'/>
             </xpath>
-               <xpath expr="//field[@name='user_id']" position="replace">
+            <!--xpath expr="//field[@name='user_id']" position="replace">
                  <field name="user_id"
                  groups="sales_team.group_sale_manager"
                  modifiers="{}"/>
-            </xpath>
+            </xpath-->
                 
         </field>
     </record>
