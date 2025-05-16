@@ -1,7 +1,7 @@
 <odoo>
   <data>
     <record id="crm_lead_form_view_inherit_user_id_readonly" model="ir.ui.view">
-        <field name="name">crm.lead.form.inherit.user_id.readonly</field>
+        <field name="name">crm.lead.form.view.inherit.user_id.readonly</field>
         <field name="model">crm.lead</field>
         <field name="inherit_id" ref="crm.crm_lead_view_form"/>
         <field name="arch" type="xml">
