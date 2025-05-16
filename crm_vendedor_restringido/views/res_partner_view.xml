@@ -1,13 +1,13 @@
 <odoo>
   <data>
     <record id="view_res_partner_form_inherit_user_id_readonly" model="ir.ui.view">
-      <field name="name">res.partner.form.inherit.user_id.readonly.attrs</field>
+      <field name="name">res.partner.form.inherit.user_id.readonly</field>
       <field name="model">res.partner</field>
       <field name="inherit_id" ref="base.view_partner_form"/>
       <field name="arch" type="xml">
 
         <!-- Modificamos el campo user_id para que solo sea editable por el grupo de Gerentes de Ventas -->
-           <xpath expr="//field[@name='user_id']" position="replace">
+           <xpath expr="//page[@name='sales_purchases]//field[@name='user_id']" position="replace">
                 <field name="user_id" groups="sales_team.group_sale_manager"/>
                 <field name="user_id" readonly="1" groups="sales_team.group_sale_salesman"/>
             </xpath>
