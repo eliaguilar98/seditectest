@@ -1,25 +1,15 @@
 <odoo>
   <data>
     <record id="view_res_partner_form_inherit_user_id_readonly" model="ir.ui.view">
-      <field name="name">res.partner.form.inherit.user_id.readonly</field>
+      <field name="name">res.partner.form.inherit.user_id.conditional</field>
       <field name="model">res.partner</field>
       <field name="inherit_id" ref="base.view_partner_form"/>
       <field name="arch" type="xml">
-        
-        <!-- Campo user_id solo lectura para vendedores -->
-        <xpath expr="//page[@name='sales_purchases']//field[@name='user_id']" position="replace">
-          <field name="user_id"
-                 groups="sales_team.group_sale_salesman,sales_team.group_sale_manager"
-                 modifiers='{"readonly": true}' />
-        </xpath>
-
-        <!-- Campo user_id editable solo para gerentes -->
-        <xpath expr="//page[@name='sales_purchases']//field[@name='user_id']" position="after">
-          <field name="user_id"
-                 groups="sales_team.group_sale_manager"
-                 modifiers="{}"/>
-        </xpath>
-
+          <xpath expr="//page[@name='sales_purchases']//field[@name='user_id']" position="replace">
+              <field name="user_id"
+                  attrs="{'readonly': [('can_edit_user_id','=',False)]}"
+                  groups="sales_team.group_sale_salesman, sales_team.group_sale_manager"/>
+          </xpath>
       </field>
     </record>
   </data>
