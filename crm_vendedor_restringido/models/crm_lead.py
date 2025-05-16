@@ -13,6 +13,6 @@ class crm_Lead(models.Model):
 
     def write(self, vals):
         if 'user_id' in vals and not self.env.user.has_group('sales_team.group_sale_manager'):
-            raise UserError(_("Solo un gerente de ventas puede cambiar el vendedor asignado."))
+            raise ValidationError(_("Solo un gerente de ventas puede cambiar el vendedor asignado."))
 
         return super().write(vals)
