@@ -3,7 +3,7 @@
 from odoo import models, fields, api 
 
 class crm_Lead(models.Model):
-    _inherit = 'crm_lead'
+    _inherit = 'crm.lead'
 
     can_edit_user_id = fields.Boolean(compute='_compute_can_edit_user_id', store=False)
 
