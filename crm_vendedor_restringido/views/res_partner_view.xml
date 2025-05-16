@@ -1,4 +1,4 @@
-<odoo>
+<!--odoo>
   <data>
     <record id="view_res_partner_form_inherit_user_id_readonly" model="ir.ui.view">
       <field name="name">res.partner.form.inherit.user_id.conditional</field>
