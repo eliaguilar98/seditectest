@@ -8,9 +8,8 @@
 
         <!-- Modificamos el campo user_id para que solo sea editable por el grupo de Gerentes de Ventas -->
         <xpath expr="//page[@string='Sales &amp; Purchase']//field[@name='user_id']" position="replace">
-          <field name="user_id"
-                 groups="sales_team.group_sale_salesman,sales_team.group_sale_manager"
-                 attrs="{'readonly': [('user_groups_ids', 'not in', [ref('sales_team.group_sale_manager')])]}"/>
+            <field name="user_id" groups="sales_team.group_sale_manager" />
+            <field name="user_id" readonly="1" groups="sales_team.group_sale_salesman" />
         </xpath>
       </field>
     </record>
