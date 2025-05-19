@@ -5,7 +5,7 @@ from odoo import models, fields, api
 class ResPartner(models.Model):
     _inherit = 'res.partner'
 
-     @api.model_create_multi
+    @api.model_create_multi
     def create(self, vals_list):
         for vals in vals_list:
             if 'user_id' in vals and not self.env.user.has_group('sales_team.group_sale_manager'):
