@@ -29,11 +29,12 @@ class crm_Lead(models.Model):
                     formatted_time = fields.Datetime.to_string(timestamp)
                     lead.message_post(
                         body =_(
-                            "📝 *Asignación de vendedor modificada*<br/>"
-                            "- Anterior: %s<br/>"
-                            "- Nuevo: %s<br/>"
-                            "- Modificado por: %s<br/>"
-                            "- Fecha y hora: %s"
+                            "<strong>📝 Asignación de vendedor modificada</strong><br/><ul>"
+                            "<li><strong>Anterior:</strong> %s</li>"
+                            "<li><strong>Nuevo:</strong> %s</li>"
+                            "<li><strong>Modificado por:</strong> %s</li>"
+                            "<li><strong>Fecha y hora:</strong> %s</li>"
+                            "</ul>"
                         ) % (
                             old_user.name or _("Sin asignar"),
                             new_user.name or _("Sin asignar"),
