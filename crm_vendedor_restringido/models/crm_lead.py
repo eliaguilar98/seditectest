@@ -2,6 +2,7 @@
 
 from odoo import models, fields, api, _
 from odoo.exceptions import UserError, ValidationError
+from datetime import datetime 
 
 class crm_Lead(models.Model):
     _inherit = 'crm.lead'
@@ -24,11 +25,20 @@ class crm_Lead(models.Model):
                 new_user = self.env['res.users'].browse(vals['user_id'])
 
                 if old_user != new_user: 
+                    timestamp = fields.Datetime.context_timestamp(self.with_context(tz=self.env.user.tz),datetime.now())
+                    formatted_time = fields.Datetime.to_string(timestamp)
                     lead.message_post(
-                        body =_("El vendedor asignado fu cambiado de <b>%s</b> a <b>%s</b> por <i>%s</i>.") % (
+                        body =_(
+                            "📝 *Asignación de vendedor modificada*<br/>"
+                            "- Anterior: %s<br/>"
+                            "- Nuevo: %s<br/>"
+                            "- Modificado por: %s<br/>"
+                            "- Fecha y hora: %s"
+                        ) % (
                             old_user.name or _("Sin asignar"),
                             new_user.name or _("Sin asignar"),
                             self.env.user.name,
+                            formatted_time
                         ),
                         subtype_xmlid="mail.mt_note",
                     )
