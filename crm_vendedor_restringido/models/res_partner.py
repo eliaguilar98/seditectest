@@ -12,7 +12,7 @@ class ResPartner(models.Model):
         for vals in vals_list:
             if 'user_id' in vals and not self.env.user.has_group('sales_team.group_sale_manager'):
                 raise UserError(_("Solo un gerente de ventas puede asignar un vendedor."))
-        return super().create(vals)
+        return super().create(vals_list)
 
     def write(self, vals):
         if 'user_id' in vals:
