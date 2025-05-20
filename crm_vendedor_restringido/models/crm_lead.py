@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 from odoo import models, fields, api, _
 from odoo.exceptions import UserError, ValidationError
 from datetime import datetime 
@@ -18,7 +17,7 @@ class crm_Lead(models.Model):
         if 'user_id' in vals:
             for lead in self:
                 if not self.env.user.has_group('sales_team.group_sale_manager'):
-                    raise ValidationError(_("Solo un gerente de ventas puede cambiar el vendedor asignado."))
+                    raise ValidationError(_("🔒 Solo un gerente de ventas tiene permiso para cambiar el vendedor asignado. Si necesitas hacer este cambio, por favor contacta a tu gerente."))
 
                 # Obtener datos del vendedor anterior y nuevo 
                 old_user = lead.user_id
@@ -44,3 +43,4 @@ class crm_Lead(models.Model):
                     )
 
         return super().write(vals)
+
