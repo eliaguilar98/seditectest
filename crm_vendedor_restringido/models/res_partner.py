@@ -15,11 +15,10 @@ class ResPartner(models.Model):
         return super().create(vals)
 
     def write(self, vals):
-       if 'user_id' in vals:
+        if 'user_id' in vals:
             for lead in self:
                 if not self.env.user.has_group('sales_team.group_sale_manager'):
                     raise ValidationError(_("🔒 Solo un gerente de ventas tiene permiso para cambiar el vendedor asignado. Si necesitas hacer este cambio, por favor contacta a tu gerente."))
-
                 # Obtener datos del vendedor anterior y nuevo 
                 old_user = lead.user_id
                 new_user = self.env['res.users'].browse(vals['user_id'])
@@ -42,5 +41,4 @@ class ResPartner(models.Model):
                         ),
                         subtype_xmlid="mail.mt_note",
                     )
-
         return super().write(vals)
