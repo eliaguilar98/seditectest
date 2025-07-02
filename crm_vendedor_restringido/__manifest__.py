@@ -2,10 +2,12 @@
 {
     'name': "crm_vendedor_restringido",
 
-    'summary': "Restricción de edición del campo Vendedor en CRM.",
+    'summary': "Restringe la edición del campo Vendedor Asignado en oportunidades del CRM.",
 
     'description': """
-Restricción de edición del campo Vendedor en CRM, solo gerencia tiene permitido la edición. 
+Este módulo agrega restricciones para evitar cambios no autorizados en el campo "Vendedor Asignado" dentro de las oportunidades del CRM.
+
+Ideal para asegurar la trazabilidad comercial y evitar reasignaciones no controladas por parte de los usuarios. 
     """,
 
     'author': "SEDITEC",
@@ -16,6 +18,7 @@ Restricción de edición del campo Vendedor en CRM, solo gerencia tiene permitid
     # for the full list
     'category': 'Sales',
     'version': '1.0',
+    'license': 'OPL-1',
 
     # any module necessary for this one to work correctly
     'depends': ['base','crm','sales_team'],

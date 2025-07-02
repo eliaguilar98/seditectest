@@ -2,21 +2,25 @@
 {
     'name': "margin_inherit",
 
-    'summary': "Short (1 phrase/line) summary of the module's purpose",
+    'summary': "Permite la modificación del campo Margen % y calcula automáticamente el precio unitario en las líneas de venta. ",
 
     'description': """
-Long description of module's purpose
+Este módulo extiende la funcionalidad de ventas para: 
+- Permitir la modificación del campo Margen % en las líneas de pedido. 
+- Calcular automáticamente el precio unitario tomando en cuenta el costo del producto y el margen definido. 
+
+Ideal para equipos que trabajan con estrategias de precio basadas en márgenes comerciales.  
     """,
 
-    'author': "My Company",
-    'website': "https://www.yourcompany.com",
+    'author': "SEDITEC",
+    'website': "https://www.seditec.mx",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/15.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
-    'category': 'Uncategorized',
+    'category': 'Sales',
     'version': '1.1',
-    'license': 'LGPL-30',
+    'license': 'OPL-1',
 
     # any module necessary for this one to work correctly
     'depends': ['base','sale','sale_management','sale_margin'],
