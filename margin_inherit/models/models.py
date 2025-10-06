@@ -10,6 +10,12 @@ class margin_inherit(models.Model):
         readonly = False,
     )
 
+    price_subtotal = fields.Float(
+        readonly = False
+    )
+
+    
+
     @api.onchange('margin_percent', 'purchase_price')
     def _onchange_margin_percent(self):
         for line in self:
