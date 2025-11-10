@@ -55,7 +55,7 @@ class AccountMove(models.Model):
 
             if diferencia > 0.10: #Tolerancia de 10 centavos
                 _logger.warning(
-                    "Pequeña diferencia en totales: Líneas $%.2f vs Factura $%.2f"
+                    "Pequeña diferencia en totales: Líneas $%.2f vs Factura $%.2f",
                     total_lineas, record.amount_untaxed
                 )
             _logger.info(
