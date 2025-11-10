@@ -17,7 +17,7 @@ class AccountMove(models.Model):
         """
         try:
             lineas_a_actualizar = record.invoice_line_ids.filtered(
-                lambda l: l.price_unit and l.price_unit > 0:
+                lambda l: l.price_unit and l.price_unit > 0
             )
 
             if not lineas_a_actualizar:
