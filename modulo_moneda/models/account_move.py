@@ -36,7 +36,7 @@ class AccountMove(models.Model):
                 linea.price_unit = nuevo_precio
 
                 _logger.debug(
-                    "Línea %d: $%.2f USD -> $%.2f MXN (TC: %.4f)"
+                    "Línea %d: $%.2f USD -> $%.2f MXN (TC: %.4f)",
                     linea.id, precio_original, nuevo_precio, tipo_cambio
                 )
             # Guardar el tipo de cambio aplicado
