@@ -39,6 +39,4 @@ class AccountMove(models.Model):
                         company,
                         move.invoice_date or fields.Date.context_today(move)
                     )
-            # Forzar recálculo de impuestos totales
-            move._recompute_tax_lines(recompute_all_taxes=True)
-            move._onchange_invoice_line_ids()
+           
