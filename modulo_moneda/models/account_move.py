@@ -33,7 +33,7 @@ class AccountMove(models.Model):
             #Convertimos cada linea
             for line in move.invoice_line_ids:
                 if line.price_unit:
-                    line.price_unit = company_currency.convert(
+                    line.price_unit = company_currency._convert(
                         line.price_unit,
                         factura_currency,
                         company,
