@@ -8,9 +8,9 @@ class AccountMove(models.Model):
 
     @api.onchange('currency_id')
     def _onchange_currency_id_convert_lines(self):
-        raise UserError("El onchange se esta ejecutando")
-        #for move in self:
-            #(f"Factura: {move.name}, Moneda nueva: {move.currency_id.name}")
+        for move in self:
+            if move.move_type not in ('out_invoice', 'in_invoice'): 
+                raise UserError(move.move_type)
 
         #for move in self: 
          #   if move.move_type not in ('out_invoice','in_invoice'):
