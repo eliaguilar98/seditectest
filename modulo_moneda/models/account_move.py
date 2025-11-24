@@ -27,7 +27,7 @@ class AccountMove(models.Model):
 
             # Convertir cada línea
             for line in move.invoice_line_ids:
-                if not line.price_unit
+                if not line.price_unit:
                     continue
 
                 original_price = line.price_unit
