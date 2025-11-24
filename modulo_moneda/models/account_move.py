@@ -23,7 +23,7 @@ class AccountMove(models.Model):
                 to_currency=invoice_currency
             )
 
-            move.message_post(body=f"Tasa aplicada: {rate}")
+            move.message_notify(body=f"Tasa aplicada: {rate}")
 
             # Convertir cada línea
             for line in move.invoice_line_ids:
