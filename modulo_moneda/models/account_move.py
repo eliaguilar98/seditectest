@@ -15,7 +15,7 @@ class AccountMove(models.Model):
                 # Monedas involucradas
                 USD = move.company_id.currency_id.search([('name','=','USD')], limit=1)
                 MXN = move.company_id.currency_id.search([('name','=','MXN')], limit=1)
-                sale_order = env['sale.order'].search([('name', '=', record.invoice_origin)], limit=1)
+                sale_order = self.env['sale.order'].search([('name', '=', record.invoice_origin)], limit=1)
         
                 sales_currency = sale_order.pricelist_id.currency_id
                 invoice_currency = move.currency_id
