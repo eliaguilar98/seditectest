@@ -9,8 +9,8 @@ class AccountMove(models.Model):
     @api.onchange('currency_id')
     def _onchange_currency_id_convert_lines(self):
         for move in self:
-            if move.move_type not in ('out_invoice', 'in_invoice'): 
-                raise UserError(move.move_type)
+            #if move.move_type not in ('out_invoice', 'in_invoice'): 
+            raise UserError(move.move_type)
 
         #for move in self: 
          #   if move.move_type not in ('out_invoice','in_invoice'):
