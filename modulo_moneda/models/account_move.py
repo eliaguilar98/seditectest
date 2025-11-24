@@ -10,7 +10,36 @@ class AccountMove(models.Model):
     def _onchange_currency_id_convert_lines(self):
         for move in self:
             #if move.move_type not in ('out_invoice', 'in_invoice'): 
-            raise UserError(move.move_type)
+            if move.state != 'draft': 
+                return
+
+            company_currency = move.company_id.currency_id
+            invoice_currency = move.currency_id
+            date = move.invoice_date or move.date or fields.Date.today()
+
+            # Obtener tasa de conversión real de Odoo
+            rate = invoice_currency._get_conversion_rate(
+                from_currency=company_currency,
+                to_currency=invoice_currency
+            )
+
+            move.message_post(body=f"Tasa aplicada: {rate}")
+
+            # Convertir cada línea
+            for line in move.invoice_line_ids:
+                if not line.price_unit
+                    continue
+
+                original_price = line.price_unit
+
+                # Convertir desde moneda de la compañía -> nueva moneda
+                converted_price = company_currency._convert(
+                    original_price, 
+                    invoice_currency,
+                    move.company_id, 
+                    date
+                )
+                line.price_unit = converted_price
 
         #for move in self: 
          #   if move.move_type not in ('out_invoice','in_invoice'):
