@@ -25,7 +25,7 @@ class AccountMove(models.Model):
             
                     for line in move.invoice_line_ids:
                     # Convertir USD -> MXN
-                        converted = USD._converted(
+                        converted = USD._convert(
                             line.price_unit,
                             MXN,
                             move.company_id,
