@@ -19,16 +19,21 @@ class AccountMove(models.Model):
         
                 sales_currency = sale_order.pricelist_id.currency_id
                 invoice_currency = move.currency_id
+                tipo_cambio = sale_order.x_studio_tipo_de_cambio
         
                 if sales_currency == USD and invoice_currency == MXN:
                     date = move.invoice_date or move.date
             
                     for line in move.invoice_line_ids:
                     # Convertir USD -> MXN
-                        converted = USD._convert(
-                            line.price_unit,
-                            MXN,
-                            move.company_id,
-                            date)
+                        usd_price = line.price_unit
+                        mxn_price = usd_price * tipo_cambio
+
+                        line.price_unit = mxn_price
+                        #converted = USD._convert(
+                         #   line.price_unit,
+                          #  MXN,
+                           # move.company_id,
+                            #date)
                     
-                        line.price_unit = converted
+                        #line.price_unit = converted
