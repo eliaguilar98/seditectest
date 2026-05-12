@@ -6,7 +6,7 @@ from odoo import models
 _logger = logging.getLogger(__name__)
 
 class saleCost(models.Model):
-    _inheirt = 'sale.order.line'
+    _inherit = 'sale.order.line'
 
     def _prepare_procurement_values(self, group_id=False):
         values = super(saleCost, self)._prepare_procurement_values(group_id)
