@@ -5,11 +5,11 @@ from odoo import models
 
 _logger = logging.getLogger(__name__)
 
-class SaleOrderLine(models.Model):
+class saleCost(models.Model):
     _inheirt = 'sale.order.line'
 
     def _prepare_procurement_values(self, group_id=False):
-        values = super(SaleOrderLine, self)._prepare_procurement_values(group_id)
+        values = super(saleCost, self)._prepare_procurement_values(group_id)
         
         if self.purchase_price:
             values['custom_sale_cost'] = self.purchase_price
