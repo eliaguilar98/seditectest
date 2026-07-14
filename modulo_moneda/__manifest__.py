@@ -15,7 +15,7 @@ Este módulo aplica el tipo de cambio personalizado de la orden de venta al gene
     # Check https://github.com/odoo/odoo/blob/15.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
     'category': 'Uncategorized',
-    'version': '0.1',
+    'version': '19.0.1.1',
     'installable':True,
 
     # any module necessary for this one to work correctly
@@ -31,5 +31,7 @@ Este módulo aplica el tipo de cambio personalizado de la orden de venta al gene
     'demo': [
         'demo/demo.xml',
     ],
+    'installable': True,
+    'application': False,
 }
 
