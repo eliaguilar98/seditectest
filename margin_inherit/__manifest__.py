@@ -19,7 +19,7 @@ Ideal para equipos que trabajan con estrategias de precio basadas en márgenes c
     # Check https://github.com/odoo/odoo/blob/15.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
     'category': 'Sales',
-    'version': '18.0.1.1',
+    'version': '19.0.1.1',
     'license': 'OPL-1',
 
     # any module necessary for this one to work correctly

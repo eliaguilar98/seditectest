@@ -16,7 +16,7 @@ Este módulo aplica el tipo de cambio personalizado de la orden de venta al gene
     # for the full list
     'category': 'Uncategorized',
     'version': '18.0.1.1',
-    'installable':True,
+    'license': 'OPL-1',
 
     # any module necessary for this one to work correctly
     'depends': ['sale','account'],
