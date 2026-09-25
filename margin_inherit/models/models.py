@@ -20,7 +20,7 @@ class SaleOrderLine(models.Model):
     )
 
     # 3. INTERCEPTAMOS EL COSTO NATIVO (Esto evita que al confirmar vuelva a 216.102)
-    @api.depends('product_id', 'company_id', 'currency_id', 'product_uom')
+    @api.depends('product_id', 'company_id', 'currency_id', 'product_uom_qty')
     def _compute_purchase_price(self):
         # 3.1. Dejamos que Odoo traiga el costo original primero
         super()._compute_purchase_price()
