@@ -25,7 +25,7 @@ class CrmLead(models.Model):
                     'No es posible convertir la Iniciativa a Oportunidad.\n'
                     'Debes completar los siguientes campos obligatorios primero:\n- %s'
                 ) % '\n- '.join(missing_fields))
-        return super(CrmLead, self.action_opportunity_change()
+        return super(CrmLead, self.action_opportunity_change())
                 
 
             
