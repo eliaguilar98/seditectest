@@ -3,7 +3,7 @@ from odoo.exceptions import UserError
 from datetime import datetime, timedelta
 
 class CrmLead(models.Model):
-    _inherit = 'crm_lead'
+    _inherit = 'crm.lead'
     def action_opportunity_change(self):
         """
         Validación de campos obligatorios antes de permitir la conversación nativa de Lead a Oportunidad
