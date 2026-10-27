@@ -18,7 +18,7 @@ Validaciones avanzadas para transiciones de etapas en CRM
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
-        'data/crm_cron.xml',
+        #'data/crm_cron.xml',
         'views/crm_lead_views.xml',
       
     ],
