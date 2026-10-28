@@ -50,6 +50,36 @@ class CrmLead(models.Model):
                         'Debes completar los siguientes campos obligatorios primero:\n- %s'
                     ) % '\n- '.join(missing_fields))
 
+    @api.constrains('stage_id', 'expected_revenue', 'x_studio_fabricante', 'message_ids')
+    def _check_qualified_stage_requirements(self):
+        # Obtener la referencia de la etapa "Calificado"
+        qualified_stage = self.env.ref('crm.stage_lead2', raise_if_not_found=False)
+
+        for lead in self:
+            # Validar solo si es una oportunidad y se intenta mover a "Calificado"
+            if lead.type == 'opportunity' and qualified_stage and lead.stage_id == qualified_stage:
+                missign_requeriments = []
+
+                # 1. Validar pronóstico / Ingreso esperado (Debe ser mayor a 0)
+                if not lead.expected_revenue or lead.expected_revenue <= 0: 
+                    missing_requirements.append("Prónostico / Ingreso Esperado debe ser mayor a 0")
+
+                # 2. Validar Fabricante (Ajusta 'x_fabricante_id' al nombre exacto de tu campo)
+                if hasattr(lead, 'x_studio_fabricante') and not lead.x_studio_fabricante:
+                    missing_requirements.append('Fabricante')
+
+                # 3. Validar al menos un registro de seguimiento en el Chatter
+                # 'comment' identifica notas internas o correos enviados/recibidos
+                tracking_records = lead.message_ids.filtered(lambda m: m.message_type in ['comment', 'email'])
+                if not tracking_records:
+                    missing_requirements.append('Al menos un registro de seguimiento (Nota o Mensaje en el Chatter)')
+
+                # Lanzar excepción modal si falta algún requerimiento
+                if missing_requirements:
+                    raise UserError(_(
+                        'No es posible mover la Oportunidad a la etapa "%s".\n'
+                        'Debes cumplir con los siguientes requisitos:\n- %s'
+                    ) % (qualified_stage.name, '\n- '.join(missing_requirements)))
             
 
     
