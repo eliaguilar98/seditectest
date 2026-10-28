@@ -58,7 +58,7 @@ class CrmLead(models.Model):
         for lead in self:
             # Validar solo si es una oportunidad y se intenta mover a "Calificado"
             if lead.type == 'opportunity' and qualified_stage and lead.stage_id == qualified_stage:
-                missing_requeriments = []
+                missing_requirements = []
 
                 # 1. Validar pronóstico / Ingreso esperado (Debe ser mayor a 0)
                 if not lead.expected_revenue or lead.expected_revenue <= 0: 
