@@ -17,7 +17,7 @@ class CrmLead2OpportunityPartner(models.TransientModel):
                 
                 if not lead.email_from:
                     missing_fields.append('Correo Electrónico')
-                if not lead.mobile and not lead.phone:
+                if not lead.phone:
                     missing_fields.append('Teléfono / Móvil')
                 if not lead.description:
                     missing_fields.append('Detalle de la Solicitud / Notas')
