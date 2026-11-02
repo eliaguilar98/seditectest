@@ -1,24 +1,24 @@
 <odoo>
     <data>
         <record id="view_partner_form_inherit_job_position" model="ir.ui.view">
-            <attribute name="name">res.partner.form.inherit.job.position</attribute>
-            <attribute name="model">res.partner</attribute>
-            <attribute name="inherit_id" ref="base.view_partner_form"/>
-            <attribute name="arch" type="xml">
-            
-                <!-- Reemplazar o colocar junto al campo nativo de puesto 'function' -->
+            <field name="name">res.partner.form.inherit.job.position</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                
+                <!-- Insertar el puesto estandarizado antes del puesto nativo -->
                 <xpath expr="//field[@name='function']" position="before">
                     <field name="job_position_id" 
-                       options="{'no_create': True, 'no_create_edit': True}" 
-                       placeholder="Seleccione puesto estandarizado..."/>
+                           options="{'no_create': True, 'no_create_edit': True}" 
+                           placeholder="Seleccione puesto estandarizado..."/>
                 </xpath>
-            
-                <!-- Opcional: hacer invisible el campo nativo de texto libre si no se usará -->
-                <xpath expr="//field[@name='function']" position="attributes">
-                    <attribute name="invisible">1</attribute>
-                </xpath>
+                
+                <!-- Ocultar el campo nativo 'function' usando sintaxis de Odoo 19 -->
+                <!--xpath expr="//field[@name='function']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath-->
 
-            </attribute>
+            </field>
         </record>
     </data>
 </odoo>
