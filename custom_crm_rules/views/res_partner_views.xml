@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_partner_form_inherit_job_position" model="ir.ui.view">
+        <attribute name="name">res.partner.form.inherit.job.position</attribute>
+        <attribute name="model">res.partner</attribute>
+        <attribute name="inherit_id" ref="base.view_partner_form"/>
+        <attribute name="arch" type="xml">
+            
+            <!-- Reemplazar o colocar junto al campo nativo de puesto 'function' -->
+            <xpath expr="//field[@name='function']" position="before">
+                <field name="job_position_id" 
+                       options="{'no_create': True, 'no_create_edit': True}" 
+                       placeholder="Seleccione puesto estandarizado..."/>
+            </xpath>
+            
+            <!-- Opcional: hacer invisible el campo nativo de texto libre si no se usará -->
+            <xpath expr="//field[@name='function']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+        </attribute>
+    </record>
+</odoo>
