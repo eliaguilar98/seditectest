@@ -13,7 +13,7 @@ Validaciones avanzadas para transiciones de etapas en CRM
     'version': '19.0.1.0',
 
     # any module necessary for this one to work correctly
-    'depends': ['crm'],
+    'depends': ['crm', 'contacts'],
 
     # always loaded
     'data': [
