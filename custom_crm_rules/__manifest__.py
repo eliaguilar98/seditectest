@@ -13,11 +13,11 @@ Validaciones avanzadas para transiciones de etapas en CRM
     'version': '19.0.1.0',
 
     # any module necessary for this one to work correctly
-    'depends': ['crm', 'contacts'],
+    'depends': ['base','crm', 'contacts'],
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
         'views/res_partner_views.xml',
         'views/job_position_views.xml',
       
