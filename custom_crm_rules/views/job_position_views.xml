@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
     <!-- Vista de Lista para el Catálogo -->
     <record id="view_partner_job_position_tree" model="ir.ui.view">
         <attribute name="name">res.partner.job.position.list</attribute>
@@ -8,7 +6,6 @@
         <attribute name="arch" type="xml">
             <list editable="bottom">
                 <field name="name"/>
-                <field name="code"/>
                 <field name="active" widget="boolean_toggle"/>
             </list>
         </attribute>
@@ -32,5 +29,4 @@
               action="action_partner_job_position"
               parent="crm.crm_menu_config"
               sequence="25"/>
-
 </odoo>

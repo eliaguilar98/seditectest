@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <record id="view_partner_form_inherit_job_position" model="ir.ui.view">
         <attribute name="name">res.partner.form.inherit.job.position</attribute>
