@@ -16,8 +16,7 @@ class ResPartner(models.Model):
     job_position_id = fields.Many2one(
         'res.partner.job.position',
         string="Puesto de trabajo",
-        help="Seleccione el puesto de trabajo del contacto". 
-    )
+        help="Seleccione el puesto de trabajo del contacto.")
 
     
     
