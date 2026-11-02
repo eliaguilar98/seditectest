@@ -1,5 +1,6 @@
 <odoo>
-    <record id="view_partner_form_inherit_job_position" model="ir.ui.view">
+    <data>
+        <record id="view_partner_form_inherit_job_position" model="ir.ui.view">
         <attribute name="name">res.partner.form.inherit.job.position</attribute>
         <attribute name="model">res.partner</attribute>
         <attribute name="inherit_id" ref="base.view_partner_form"/>
@@ -19,4 +20,5 @@
 
         </attribute>
     </record>
+    </data>
 </odoo>
