@@ -17,9 +17,9 @@ Validaciones avanzadas para transiciones de etapas en CRM
 
     # always loaded
     'data': [
-        'security/ir.model.access.csv',
-        'views/res_partner_views.xml',
-        'views/job_position_views.xml',
+        #'security/ir.model.access.csv',
+        #'views/res_partner_views.xml',
+        #'views/job_position_views.xml',
       
     ],
     'installable': True,
